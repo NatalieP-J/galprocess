@@ -11,7 +11,7 @@ def LoadData(fname):
 if __name__ == '__main__':
     oldfile = LoadData('runWMsmall.sh')
     modline = oldfile[-1][:19]
-    newline = '{0} {1} {2}'.format(modline,sys.argv[1],sys.argv[2])
+    newline = '{0} {1}'.format(modline,sys.argv[1])
     newfile = oldfile
     newfile[-1] = newline
     newfname = open('runWMsmall.sh','wb')
