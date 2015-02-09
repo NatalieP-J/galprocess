@@ -5,7 +5,7 @@ from rateget import *
 from construction import fromfileplot
 from rhomodels import NukerModelRho
 import sys
-from loadWM import getWM
+from loadWMRho import getWM
 
 i = int(sys.argv[1])
 
