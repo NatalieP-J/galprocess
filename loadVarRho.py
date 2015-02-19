@@ -26,9 +26,9 @@ if __name__ == '__main__':
 	from rhomodels import NukerModelRho
 	from rateget import getrate
 	from rhoratefcns import findrho0
-	WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('WM04.dat')
+	WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('NGC596_vartab.dat')
 	rho0s = findrho0(rbs,M2Ls,mubs)
-	ilist = arange(40)
+	ilist = arange(26)
 	for i in ilist:
 		print 'Working on ',names[i],' galaxy ',i+1,' of ',len(ilist)
 		alpha = alphas[i]
