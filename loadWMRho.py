@@ -9,7 +9,7 @@ def load(fname):
     return data
 
 def getWM(fname):
-	WM = array(load(fname))[:,][:-10]
+	WM = array(load(fname))[:,]
 	names = WM[:,0]
 	dists = array([float(i) for i in WM[:,2]])
 	rbs = 10**array([float(i) for i in WM[:,3]])

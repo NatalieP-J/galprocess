@@ -41,7 +41,7 @@ beta = (array([float(i) for i in WM[:,6]]))[rowind]
 gamma = (array([float(i) for i in WM[:,7]]))[rowind]
 MBH2 = (array([float(i) for i in WM[:,12]]))[rowind]
 basicrow = WM[rowind]
-varvals = array([0.005,-0.005,0.1,-0.1,0.5,-0.5])
+varvals = array([0,0.005,-0.005,0.1,-0.1,0.5,-0.5])
 
 nplist = []
 nplist.append(varparams(beta,varvals))
