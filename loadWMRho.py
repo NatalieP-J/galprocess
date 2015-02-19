@@ -1,6 +1,6 @@
 from numpy import *
 
-def LoadDataTab(fname):
+def load(fname):
     f=open(fname,'r')
     data=[]
     for line in f.readlines():
@@ -8,8 +8,8 @@ def LoadDataTab(fname):
     f.close()
     return data
 
-def getWM():
-	WM = array(LoadDataTab('WM04.dat'))[:,][:-10]
+def getWM(fname):
+	WM = array(load(fname))[:,][:-10]
 	names = WM[:,0]
 	dists = array([float(i) for i in WM[:,2]])
 	rbs = 10**array([float(i) for i in WM[:,3]])
@@ -26,7 +26,7 @@ if __name__ == '__main__':
 	from rhomodels import NukerModelRho
 	from rateget import getrate
 	from rhoratefcns import findrho0
-	WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM()
+	WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('WM04.dat')
 	rho0s = findrho0(rbs,M2Ls,mubs)
 	ilist = array([ 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34,
        35, 36, 37, 38, 39, 40]) #skip 21
