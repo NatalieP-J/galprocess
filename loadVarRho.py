@@ -9,7 +9,7 @@ def load(fname):
     return data
 
 def getWM(fname):
-	WM = array(load(fname))[:,][:-10]
+	WM = array(load(fname))[:,]
 	names = WM[:,0]
 	dists = array([float(i) for i in WM[:,2]])
 	rbs = 10**array([float(i) for i in WM[:,3]])
@@ -28,9 +28,9 @@ if __name__ == '__main__':
 	from rhoratefcns import findrho0
 	WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('NGC596_vartab.dat')
 	rho0s = findrho0(rbs,M2Ls,mubs)
-	ilist = arange(26)
+	ilist = arange(50)
 	for i in ilist:
-		print 'Working on ',names[i],' galaxy ',i+1,' of ',len(ilist)
+		print 'Working on ',names[i],' galaxy ',i+1,' of ',len(WM)
 		alpha = alphas[i]
 		beta = betas[i]
 		gamma = gammas[i]

@@ -1,5 +1,6 @@
 from numpy import *
 import matplotlib.pyplot as plt
+from construction import pklread
 
 def load(fname):
     f=open(fname,'r')
@@ -30,8 +31,8 @@ if __name__ == '__main__':
 	WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('WM04.dat')
 	rho0s = findrho0(rbs,M2Ls,mubs)
 	ilist = arange(1,51)
-	ilist = delete(ilist,20)
-	ilist = arange(48,51)
+	#ilist = delete(ilist,20)
+	#ilist = arange(48,51)
 	for i in ilist:
 		print 'Working on ',names[i],' galaxy ',i+1,' of ',len(WM)
 		alpha = alphas[i]
@@ -45,6 +46,21 @@ if __name__ == '__main__':
 		name2 = '{0}_2'.format(names[i])
 		GENERATE = False
 		model1 = NukerModelRho(name1,alpha,beta,gamma,r0pc,rho0,MBH_Msun1,GENERATE,memo = False)
-		result1 = getrate(model1)
 		model2 = NukerModelRho(name2,alpha,beta,gamma,r0pc,rho0,MBH_Msun2,GENERATE,memo = False)
-		result2 = getrate(model2)
+		try:
+			rate1 = pklread('{0}/dgdlnrp.pkl'.format(model1.directory))
+			rate2 = pklread('{0}/dgdlnrp.pkl'.format(model2.directory))
+			plt.figure(figsize = (9,7))
+			plt.title('{0}'.format(names[i]))
+			plt.ylabel('$d\gamma/d\ln r_p$',fontsize = 20)
+			plt.xlabel('$u^2$',fontsize = 20)
+			plt.loglog(rate1[:,0][20000:],rate1[:,1][20000:],label = 'MBH = {0}'.format(log10(MBH_Msun1)))
+			plt.loglog(rate2[:,0][20000:],rate2[:,1][20000:],label = 'MBH = {0}'.format(log10(MBH_Msun2)))
+			plt.legend(loc = 'best')
+			plt.xlim(min(rate1[:,0][20000:]),max(rate1[:,0][20000:]))
+			plt.savefig('{0}MBHcomp.png'.format(names[i]))
+		except ValueError:
+			print 'No positive values in rate for {0}'.format(names[i])
+		except IOError:
+			print 'No rate for {0}'.format(names[i])
+
