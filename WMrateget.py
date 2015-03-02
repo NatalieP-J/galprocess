@@ -9,7 +9,7 @@ from loadWMRho import getWM
 
 i = int(sys.argv[1])
 
-WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('WM04.dat')
+WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('NGC3115_vartab.dat')
 
 GENERATE = True
 
