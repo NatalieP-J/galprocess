@@ -28,11 +28,9 @@ if __name__ == '__main__':
 	from rhomodels import NukerModelRho
 	from rateget import getrate
 	from rhoratefcns import findrho0
-	WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('WM04.dat')
+	WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('NGC3115_vartab.dat')
 	rho0s = findrho0(rbs,M2Ls,mubs)
-	ilist = arange(1,51)
-	#ilist = delete(ilist,20)
-	#ilist = arange(48,51)
+	ilist = arange(len(WM))
 	for i in ilist:
 		print 'Working on ',names[i],' galaxy ',i+1,' of ',len(WM)
 		alpha = alphas[i]
@@ -58,7 +56,7 @@ if __name__ == '__main__':
 			plt.loglog(rate2[:,0][20000:],rate2[:,1][20000:],label = 'MBH = {0}'.format(log10(MBH_Msun2)))
 			plt.legend(loc = 'best')
 			plt.xlim(min(rate1[:,0][20000:]),max(rate1[:,0][20000:]))
-			plt.savefig('{0}MBHcomp.png'.format(names[i]))
+			plt.savefig('{0}MBHcomp_MBH{1}.png'.format(names[i],log10(MBH_Msun2)))
 		except ValueError:
 			print 'No positive values in rate for {0}'.format(names[i])
 		except IOError:
