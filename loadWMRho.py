@@ -1,5 +1,6 @@
 from numpy import *
 import matplotlib.pyplot as plt
+import os
 
 def load(fname):
     f=open(fname,'r')
@@ -28,6 +29,7 @@ if __name__ == '__main__':
 	from rateget import getrate
 	from rhoratefcns import findrho0
 	WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('WM04.dat')
+	os.chdir('/Users/Natalie/Data/Mar12WM')
 	rho0s = findrho0(rbs,M2Ls,mubs)
 	ilist = arange(1,51)
 	ilist = delete(ilist,20)
@@ -48,3 +50,4 @@ if __name__ == '__main__':
 		result1 = getrate(model1)
 		model2 = NukerModelRho(name2,alpha,beta,gamma,r0pc,rho0,MBH_Msun2,GENERATE,memo = False)
 		result2 = getrate(model2)
+	os.chdir('/Users/Natalie/Code/galprocess')

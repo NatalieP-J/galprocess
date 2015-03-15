@@ -1,4 +1,5 @@
 from numpy import *
+import os
 
 def load(fname):
     f=open(fname,'r')
@@ -26,9 +27,10 @@ if __name__ == '__main__':
 	from rhomodels import NukerModelRho
 	from rateget import getrate
 	from rhoratefcns import findrho0
-	WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('NGC3115_vartab.dat')
+	WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('NGC4552_vartab.dat')
 	rho0s = findrho0(rbs,M2Ls,mubs)
 	ilist = arange(len(WM))
+	os.chdir('/Users/Natalie/Data/Mar12WM')
 	for i in ilist:
 		print 'Working on ',names[i],' galaxy ',i+1,' of ',len(WM)
 		alpha = alphas[i]
@@ -45,3 +47,4 @@ if __name__ == '__main__':
 		result1 = getrate(model1)
 		model2 = NukerModelRho(name2,alpha,beta,gamma,r0pc,rho0,MBH_Msun2,GENERATE,memo = False)
 		result2 = getrate(model2)
+	os.chdir('/Users/Natalie/Code/galprocess')
