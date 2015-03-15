@@ -3,6 +3,7 @@ from itertools import product
 from loadWMRho import getWM, load
 import matplotlib.pyplot as plt
 from construction import pklread
+import os
 
 plt.ion()
 
@@ -59,68 +60,82 @@ if __name__ == '__main__':
     chinds = [6,7]
     #chinds = [12]
 
-    tab = newtab(nplist,chinds,basicrow)
+    #tab = newtab(nplist,chinds,basicrow)
 
-    writefile(tab,'{0}_vartab.dat'.format(name.replace(' ','')))
+    #writefile(tab,'{0}_vartab.dat'.format(name.replace(' ','')))
 
-'''
-beta += 1
-gamma += 1
+    beta += 1
+    gamma += 1
 
-bs = nplist[0]
+    bs = nplist[0]
 
-plt.figure()
-plt.xlim(1e-4,1-1e-4)
-plt.title('NGC596 1st black hole mass estimate, original beta 2.97, gamma 1.55')
-plt.xlabel('$u^2$',fontsize = 20)
-plt.ylabel('$d\gamma/d\ln r_p$', fontsize = 20)
+    os.chdir('/Users/Natalie/Data/Mar12WM')
 
-for i in range(len(bs)):
-    direc1 = 'NukerRhoGals/NGC 596_1_Rho_a0.76_b{0}_g{1}_MBH489778819.368/dgdlnrp.pkl'.format(bs[i]+1,gamma)
-    ratedat = pklread(direc1)
-    plt.loglog(ratedat[:,0],ratedat[:,1],label = 'beta = {0}'.format(bs[i]+1))
+    plt.figure()
+    plt.xlim(1e-4,1-1e-4)
+    plt.title('{0} 1st black hole mass estimate, original beta {1}, gamma {2}'.format(name,beta,gamma))
+    plt.xlabel('$u^2$',fontsize = 20)
+    plt.ylabel('$d\gamma/d\ln r_p$', fontsize = 20)
 
-plt.legend(loc = 'best')
+    for i in range(len(bs)):
+        direc1 = 'NukerRhoGals/{0}_1_Rho_a{1}_b{2}_g{3}_MBH{4}/dgdlnrp.pkl'.format(name,alpha,bs[i]+1,gamma,10**MBH1)
+        try:
+            ratedat = pklread(direc1)
+            plt.loglog(ratedat[:,0],ratedat[:,1],label = 'beta = {0}'.format(bs[i]+1))
+        except IOError:
+            pass
 
-plt.figure()
-plt.xlim(1e-4,1-1e-4)
-plt.title('NGC596 2nd black hole mass estimate, original beta 2.97, gamma 1.55')
-plt.xlabel('$u^2$',fontsize = 20)
-plt.ylabel('$d\gamma/d\ln r_p$', fontsize = 20)
+    plt.legend(loc = 'best')
 
-for i in range(len(bs)):
-    direc1 = 'NukerRhoGals/NGC 596_2_Rho_a0.76_b{0}_g{1}_MBH48977881.9368/dgdlnrp.pkl'.format(bs[i]+1,gamma)
-    ratedat = pklread(direc1)
-    plt.loglog(ratedat[:,0],ratedat[:,1],label = 'beta = {0}'.format(bs[i]+1))
+    plt.figure()
+    plt.xlim(1e-4,1-1e-4)
+    plt.title('{0} 2nd black hole mass estimate, original beta {1}, gamma {2}'.format(name,beta,gamma))
+    plt.xlabel('$u^2$',fontsize = 20)
+    plt.ylabel('$d\gamma/d\ln r_p$', fontsize = 20)
 
-plt.legend(loc = 'best')
+    for i in range(len(bs)):
+        direc1 = 'NukerRhoGals/{0}_2_Rho_a{1}_b{2}_g{3}_MBH{4}/dgdlnrp.pkl'.format(name,alpha,bs[i]+1,gamma,10**MBH2)
+        try:
+            ratedat = pklread(direc1)
+            plt.loglog(ratedat[:,0],ratedat[:,1],label = 'beta = {0}'.format(bs[i]+1))
+        except IOError:
+            pass
 
-gs = nplist[1]
+    plt.legend(loc = 'best')
 
-plt.figure()
-plt.xlim(1e-4,1-1e-4)
-plt.title('NGC596 1st black hole mass estimate, original gamma 1.55, beta 2.97')
-plt.xlabel('$u^2$',fontsize = 20)
-plt.ylabel('$d\gamma/d\ln r_p$', fontsize = 20)
+    gs = nplist[1]
 
-for i in range(len(gs)):
-    direc1 = 'NukerRhoGals/NGC 596_1_Rho_a0.76_b{0}_g{1}_MBH489778819.368/dgdlnrp.pkl'.format(beta,gs[i]+1)
-    ratedat = pklread(direc1)
-    plt.loglog(ratedat[:,0],ratedat[:,1],label = 'gamma = {0}'.format(gs[i]+1))
+    plt.figure()
+    plt.xlim(1e-4,1-1e-4)
+    plt.title('{0} 1st black hole mass estimate, original gamma {1}, beta {2}'.format(name,gamma,beta))
+    plt.xlabel('$u^2$',fontsize = 20)
+    plt.ylabel('$d\gamma/d\ln r_p$', fontsize = 20)
 
-plt.legend(loc = 'best')
+    for i in range(len(gs)):
+        direc1 = 'NukerRhoGals/{0}_1_Rho_a{1}_b{2}_g{3}_MBH{4}/dgdlnrp.pkl'.format(name,alpha,beta,gs[i]+1,10**MBH1)
+        try:
+            ratedat = pklread(direc1)
+            plt.loglog(ratedat[:,0],ratedat[:,1],label = 'gamma = {0}'.format(gs[i]+1))
+        except IOError:
+            pass
 
-plt.figure()
-plt.xlim(1e-4,1-1e-4)
-plt.title('NGC596 2nd black hole mass estimate, original gamma 1.55, beta 2.97')
-plt.xlabel('$u^2$',fontsize = 20)
-plt.ylabel('$d\gamma/d\ln r_p$', fontsize = 20)
+    plt.legend(loc = 'best')
 
-for i in range(len(gs)):
-    direc1 = 'NukerRhoGals/NGC 596_2_Rho_a0.76_b{0}_g{1}_MBH48977881.9368/dgdlnrp.pkl'.format(beta,gs[i]+1)
-    ratedat = pklread(direc1)
-    plt.loglog(ratedat[:,0],ratedat[:,1],label = 'gamma = {0}'.format(gs[i]+1))
+    plt.figure()
+    plt.xlim(1e-4,1-1e-4)
+    plt.title('{0} 2nd black hole mass estimate, original gamma {1}, beta {2}'.format(name,gamma,beta))
+    plt.xlabel('$u^2$',fontsize = 20)
+    plt.ylabel('$d\gamma/d\ln r_p$', fontsize = 20)
 
-plt.legend(loc = 'best')
-'''
+    for i in range(len(gs)):
+        direc1 = 'NukerRhoGals/{0}_2_Rho_a{1}_b{2}_g{3}_MBH{4}/dgdlnrp.pkl'.format(name,alpha,beta,gs[i]+1,10**MBH2)
+        try:
+            ratedat = pklread(direc1)
+            plt.loglog(ratedat[:,0],ratedat[:,1],label = 'gamma = {0}'.format(gs[i]+1))
+        except IOError:
+            pass
+
+    plt.legend(loc = 'best')
+
+    os.chdir('/Users/Natalie/Code/galprocess')
 
