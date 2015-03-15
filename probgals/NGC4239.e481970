@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "WMrateget.py", line 26, in <module>
-    Mencgood,psigood,Jc2good,ggood,Ggood,fgood,rategood = getrate(model1)
-ValueError: too many values to unpack
