@@ -1,0 +1,60 @@
+fraction reporting a message: 0.0105263157895
+Mencgood ran in 	 0:00:01.340000
+fraction reporting a message: 0.0234604105572
+psigood ran in 	 0:00:01.790000
+fraction reporting a message: 0.0
+Jc2good ran in 	 0:00:05.380000
+fraction reporting a message: 0.494809688581
+lggood ran in 	 0:02:33.620000
+fraction reporting a message: 0.0
+bGgood ran in 	 5:19:11.820000
+fraction reporting a message: 0.336283185841
+fgood ran in 	 0:03:04.090000
+fraction reporting a message: 0.0
+dgdlnrpgood ran in 	 0:00:10.190000
+
+fraction reporting a message: 0.0094696969697
+Mencgood ran in 	 0:00:01.420000
+fraction reporting a message: 0.154430379747
+psigood ran in 	 0:00:02.210000
+fraction reporting a message: 0.00788643533123
+Jc2good ran in 	 0:00:04.930000
+Failed to evaluate rapo
+The iteration is not making good progress, as measured by the 
+  improvement from the last ten iterations.
+Failed to evaluate rapo
+The iteration is not making good progress, as measured by the 
+  improvement from the last ten iterations.
+fraction reporting a message: 0.619873817035
+lggood ran in 	 0:02:57.250000
+fraction reporting a message: 0.0
+bGgood ran in 	 5:39:27.330000
+fraction reporting a message: 0.477551020408
+fgood ran in 	 0:03:31.240000
+fraction reporting a message: 0.0
+dgdlnrpgood ran in 	 0:00:29.880000
+
+---------------------------------------------------
+Job Resources Requested:
+
+cput=100000:00:00,ncpus=1,neednodes=1:ppn=1,nodes=1:ppn=1,walltime=48:00:00
+---------------------------------------------------
+Job Resources Used:
+
+cput=11:11:53,mem=72480kb,vmem=397600kb,walltime=11:12:37
+---------------------------------------------------
+
+---------------------------------------------------
+Job Script:
+
+#!/bin/bash
+#PBS -l nodes=1:ppn=1
+#PBS -q workq
+#PBS -l walltime=48:00:00
+#PBS -N runvar
+cd $PBS_O_WORKDIR
+module load python/2.7.6
+export PYTHONPATH=$PATH:/mnt/scratch-lustre/njones/pyrate
+python WMrateget.py 13
+---------------------------------------------------
+

@@ -1,0 +1,54 @@
+fraction reporting a message: 0.0
+Mencgood ran in 	 0:00:00.950000
+fraction reporting a message: 0.0
+psigood ran in 	 0:00:01.190000
+fraction reporting a message: 0.0
+Jc2good ran in 	 0:00:04.200000
+fraction reporting a message: 0.54329004329
+lggood ran in 	 0:01:57.560000
+fraction reporting a message: 0.0
+bGgood ran in 	 4:55:18.920000
+fraction reporting a message: 0.101063829787
+fgood ran in 	 0:02:06.500000
+fraction reporting a message: 0.0
+dgdlnrpgood ran in 	 0:01:11.590000
+
+fraction reporting a message: 0.0
+Mencgood ran in 	 0:00:00.960000
+fraction reporting a message: 0.0
+psigood ran in 	 0:00:01.350000
+fraction reporting a message: 0.0
+Jc2good ran in 	 0:00:03.290000
+fraction reporting a message: 0.579572446556
+lggood ran in 	 0:01:42.980000
+fraction reporting a message: 0.0
+bGgood ran in 	 5:03:57.860000
+fraction reporting a message: 0.229885057471
+fgood ran in 	 0:02:05.650000
+fraction reporting a message: 0.0
+dgdlnrpgood ran in 	 0:02:09.560000
+
+---------------------------------------------------
+Job Resources Requested:
+
+cput=100000:00:00,ncpus=1,neednodes=1:ppn=1,nodes=1:ppn=1,walltime=48:00:00
+---------------------------------------------------
+Job Resources Used:
+
+cput=10:10:57,mem=73716kb,vmem=400696kb,walltime=10:11:35
+---------------------------------------------------
+
+---------------------------------------------------
+Job Script:
+
+#!/bin/bash
+#PBS -l nodes=1:ppn=1
+#PBS -q workq
+#PBS -l walltime=48:00:00
+#PBS -N runvar
+cd $PBS_O_WORKDIR
+module load python/2.7.6
+export PYTHONPATH=$PATH:/mnt/scratch-lustre/njones/pyrate
+python WMrateget.py 14
+---------------------------------------------------
+
