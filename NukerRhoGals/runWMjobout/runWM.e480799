@@ -1,4 +1,0 @@
-/mnt/scratch-lustre/njones/pyrate/construction.py:355: RuntimeWarning: invalid value encountered in log10
-  good =  interp1d(log10(rarray),log10(tab))
-/mnt/scratch-lustre/njones/pyrate/construction.py:355: RuntimeWarning: divide by zero encountered in log10
-  good =  interp1d(log10(rarray),log10(tab))
