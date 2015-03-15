@@ -1,0 +1,28 @@
+/mnt/scratch-lustre/njones/pyrate/rateget.py:72: RuntimeWarning: divide by zero encountered in double_scalars
+  exps['Jc2'] = [-1,((4-model.b)/(2-model.b))][::-1]
+/mnt/scratch-lustre/njones/pyrate/rateget.py:73: RuntimeWarning: divide by zero encountered in double_scalars
+  exps['lg'] = [model.g - 0.5,(((model.b - 1) + 1)/((model.b - 1) - 1)) - 0.5][::-1]
+/mnt/scratch-lustre/njones/pyrate/rateget.py:74: RuntimeWarning: divide by zero encountered in double_scalars
+  exps['f'] = [model.g - 1.5, (((model.b - 1) + 1)/((model.b - 1) - 1)) - 1.5][::-1]
+/mnt/scratch-lustre/njones/pyrate/rateget.py:75: RuntimeWarning: divide by zero encountered in double_scalars
+  exps['bG'] = [model.g - 4, (((model.b - 1) - 2)/((model.b - 1) - 1)) - 1][::-1]
+/opt/python/2.7.6/lib/python2.7/site-packages/scipy/optimize/minpack.py:236: RuntimeWarning: The iteration is not making good progress, as measured by the 
+  improvement from the last ten iterations.
+  warnings.warn(msg, RuntimeWarning)
+/mnt/scratch-lustre/njones/pyrate/construction.py:261: RuntimeWarning: divide by zero encountered in log10
+  inter2 = interp1d(log10(r),log10(m))
+/opt/python/2.7.6/lib/python2.7/site-packages/scipy/interpolate/interpolate.py:416: RuntimeWarning: invalid value encountered in subtract
+  slope = (y_hi - y_lo) / (x_hi - x_lo)[:, None]
+/opt/python/2.7.6/lib/python2.7/site-packages/scipy/integrate/quadpack.py:295: UserWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  warnings.warn(msg)
+/opt/python/2.7.6/lib/python2.7/site-packages/scipy/interpolate/interpolate.py:419: RuntimeWarning: invalid value encountered in add
+  y_new = slope*(x_new - x_lo)[:, None] + y_lo
+/opt/python/2.7.6/lib/python2.7/site-packages/scipy/integrate/quadpack.py:295: UserWarning: The occurrence of roundoff error is detected, which prevents 
+  the requested tolerance from being achieved.  The error may be 
+  underestimated.
+  warnings.warn(msg)
