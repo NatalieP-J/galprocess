@@ -36,31 +36,32 @@ def newtab(nplist,chinds,origrow):
         srow += '\n'
         rows.append(srow)
     return rows
-        
-WM = array(load('WM04.dat'))[:,]
-names = WM[:,0]
-name = 'NGC 1426'
-rowind = name2row(name,names)
-alpha = (array([float(i) for i in WM[:,5]]))[rowind]
-beta = (array([float(i) for i in WM[:,6]]))[rowind]
-gamma = (array([float(i) for i in WM[:,7]]))[rowind]
-MBH1 = (array([float(i) for i in WM[:,10]]))[rowind]
-MBH2 = (array([float(i) for i in WM[:,12]]))[rowind]
-basicrow = WM[rowind]
-varvals = array([-0.5,-0.1,-0.005,0,0.005,0.1,0.5])
-#varvals = array([-2,-1,0,1,2])
+ 
+if __name__ == '__main__':       
+    WM = array(load('WM04.dat'))[:,]
+    names = WM[:,0]
+    name = 'NGC 1426'
+    rowind = name2row(name,names)
+    alpha = (array([float(i) for i in WM[:,5]]))[rowind]
+    beta = (array([float(i) for i in WM[:,6]]))[rowind]
+    gamma = (array([float(i) for i in WM[:,7]]))[rowind]
+    MBH1 = (array([float(i) for i in WM[:,10]]))[rowind]
+    MBH2 = (array([float(i) for i in WM[:,12]]))[rowind]
+    basicrow = WM[rowind]
+    varvals = array([-0.5,-0.1,-0.005,0,0.005,0.1,0.5])
+    #varvals = array([-2,-1,0,1,2])
+    
+    nplist = []
+    nplist.append(varparams(beta,varvals))
+    nplist.append(varparams(gamma,varvals))
+    #nplist.append(varparams(MBH2,varvals))
 
-nplist = []
-nplist.append(varparams(beta,varvals))
-nplist.append(varparams(gamma,varvals))
-#nplist.append(varparams(MBH2,varvals))
+    chinds = [6,7]
+    #chinds = [12]
 
-chinds = [6,7]
-#chinds = [12]
+    tab = newtab(nplist,chinds,basicrow)
 
-tab = newtab(nplist,chinds,basicrow)
-
-writefile(tab,'{0}_vartab.dat'.format(name.replace(' ','')))
+    writefile(tab,'{0}_vartab.dat'.format(name.replace(' ','')))
 
 '''
 beta += 1
