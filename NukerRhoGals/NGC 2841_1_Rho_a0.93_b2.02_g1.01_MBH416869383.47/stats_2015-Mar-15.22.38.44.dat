@@ -1,0 +1,20 @@
+GALAXY: NGC 2841_1
+Menc:
+
+mesg frac = 0.0
+Mencgood ran in 	 0:00:00.740000
+
+psi:
+psi2,	 i = 277,	 message = The algorithm does not converge.  Roundoff error is detected
+  in the extrapolation table.  It is assumed that the requested tolerance
+  cannot be achieved, and that the returned result (if full_output = 1) is 
+  the best which can be obtained.
+psi2,	 i = 278,	 message = The algorithm does not converge.  Roundoff error is detected
+  in the extrapolation table.  It is assumed that the requested tolerance
+  cannot be achieved, and that the returned result (if full_output = 1) is 
+  the best which can be obtained.
+
+mesg frac = 0.00716845878136
+psigood ran in 	 0:00:00.900000
+
+Jc2:
