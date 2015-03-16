@@ -25,13 +25,19 @@ def getWM(fname):
 	return WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s
 
 if __name__ == '__main__':
+	rates = []
 	from rhomodels import NukerModelRho
 	from rateget import getrate
 	from rhoratefcns import findrho0
+	from construction import writedata
 	WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('WM04.dat')
 	os.chdir('/Users/Natalie/Data/Mar14WM')
 	rho0s = findrho0(rbs,M2Ls,mubs)
-	ilist = arange(0,51)
+	ilist = arange(0,50)
+	ilist = delete(ilist,21)
+	ilist = delete(ilist,40)
+	ilist = delete(ilist,40)
+	ilist = delete(ilist,44)
 	for i in ilist:
 		print 'Working on ',names[i],' galaxy ',i+1,' of ',len(WM)
 		alpha = alphas[i]
@@ -46,6 +52,11 @@ if __name__ == '__main__':
 		GENERATE = False
 		model1 = NukerModelRho(name1,alpha,beta,gamma,r0pc,rho0,MBH_Msun1,GENERATE,memo = False)
 		result1 = getrate(model1)
-		model2 = NukerModelRho(name2,alpha,beta,gamma,r0pc,rho0,MBH_Msun2,GENERATE,memo = False)
-		result2 = getrate(model2)
+		if result1[-1] != 0:
+			rates.append('{0}\t{1}'.format(name1,log10(result1[-1])))
+		#model2 = NukerModelRho(name2,alpha,beta,gamma,r0pc,rho0,MBH_Msun2,GENERATE,memo = False)
+		#result2 = getrate(model2)
+		#if result2[-1] != 0:
+		#	rates.append('{0}\t{1}'.format(name2,log10(result2[-1])))
+	writedata(rates,'totalrates.dat')
 	os.chdir('/Users/Natalie/Code/galprocess')
