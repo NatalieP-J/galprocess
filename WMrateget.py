@@ -11,7 +11,7 @@ i = int(sys.argv[1])
 
 WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('WM04.dat')
 
-GENERATE = True
+GENERATE = False
 
 name = names[i]
 alpha = alphas[i]
