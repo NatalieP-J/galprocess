@@ -1,0 +1,31 @@
+/mnt/scratch-lustre/njones/pyrate/rhomodels.py:353: RuntimeWarning: overflow encountered in double_scalars
+  return (r**-self.g)*(1+r**self.a)**((self.g-self.b)/self.a)
+/opt/python/2.7.6/lib/python2.7/site-packages/scipy/integrate/quadpack.py:295: UserWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  warnings.warn(msg)
+/opt/python/2.7.6/lib/python2.7/site-packages/scipy/integrate/quadpack.py:295: UserWarning: The occurrence of roundoff error is detected, which prevents 
+  the requested tolerance from being achieved.  The error may be 
+  underestimated.
+  warnings.warn(msg)
+/mnt/scratch-lustre/njones/pyrate/rhomodels.py:367: RuntimeWarning: overflow encountered in double_scalars
+  nume = (1+self.b)*self.b*(r**(2*self.a)) + self.g + self.g**2 + (self.b-self.a*self.b + self.g + self.a*self.g + 2*self.b*self.g)*r**self.a
+/mnt/scratch-lustre/njones/pyrate/rhomodels.py:368: RuntimeWarning: overflow encountered in double_scalars
+  deno = (r**2)*(1+r**self.a)**2
+/mnt/scratch-lustre/njones/pyrate/rhomodels.py:369: RuntimeWarning: invalid value encountered in double_scalars
+  return self.rho(r)*(nume/deno)
+/mnt/scratch-lustre/njones/pyrate/rhoratefcns.py:478: RuntimeWarning: divide by zero encountered in double_scalars
+  result1 = (var**3)*(1./sqrt(abs(E-psi)))*model.d2rhodr2(var)
+/mnt/scratch-lustre/njones/pyrate/rhoratefcns.py:479: RuntimeWarning: divide by zero encountered in double_scalars
+  result2 = (var**2)*(1./sqrt(abs(E-psi)))*model.drhodr(var)
+/mnt/scratch-lustre/njones/pyrate/rhoratefcns.py:480: RuntimeWarning: divide by zero encountered in double_scalars
+  result3 = -(var**2)*(1./sqrt(abs(E-psi)))*(1./(2*rapoval))*model.drhodr(var)*((model.Mnorm*(r-1) + r*Mencvar - Mencrap)/abs(E-psi))
+/mnt/scratch-lustre/njones/pyrate/rhoratefcns.py:480: RuntimeWarning: divide by zero encountered in divide
+  result3 = -(var**2)*(1./sqrt(abs(E-psi)))*(1./(2*rapoval))*model.drhodr(var)*((model.Mnorm*(r-1) + r*Mencvar - Mencrap)/abs(E-psi))
+/mnt/scratch-lustre/njones/pyrate/rhoratefcns.py:481: RuntimeWarning: invalid value encountered in double_scalars
+  return result1+result2+result3
+/mnt/scratch-lustre/njones/pyrate/construction.py:197: RuntimeWarning: invalid value encountered in less
+  negs = vals[where(vals<0)]

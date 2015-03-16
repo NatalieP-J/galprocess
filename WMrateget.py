@@ -23,13 +23,13 @@ rb = rbs[i]
 mub = mubs[i]
 rho0 = findrho0(rb,M2L,mub)
 model1 = NukerModelRho('{0}_1'.format(name),alpha,beta,gamma,rb,rho0,MBH_Msun,GENERATE,memo = False)
-Mencgood,psigood,Jc2good,ggood,Ggood,fgood,rategood = getrate(model1)
+result1 = getrate(model1)
 MBH_Msun = MBH2s[i]
 
 GENERATE = True
 
 model2 = NukerModelRho('{0}_2'.format(name),alpha,beta,gamma,rb,rho0,MBH_Msun,GENERATE,memo = False)
-Mencgood,psigood,Jc2good,ggood,Ggood,fgood,rategood = getrate(model2)
+result2 = getrate(model2)
 
 
 
