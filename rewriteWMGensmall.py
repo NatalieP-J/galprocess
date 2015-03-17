@@ -13,7 +13,7 @@ if __name__ == '__main__':
     WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('WM04.dat')
     ind = sys.argv[1]
     name = names[int(ind)]
-    oldfile = LoadData('runWMsmall.sh')
+    oldfile = LoadData('runWMGensmall.sh')
     modline1 = oldfile[4][:8]
     modline2 = oldfile[-1][:22]
     newline1 = '{0} {1}'.format(modline1,name.replace(' ',''))
@@ -21,7 +21,7 @@ if __name__ == '__main__':
     newfile = oldfile
     newfile[4] = newline1
     newfile[-1] = newline2
-    newfname = open('runWMsmall.sh','wb')
+    newfname = open('runWMGensmall.sh','wb')
     for i in range(len(newfile)):
         newfname.write('{0}\n'.format(newfile[i]))
     newfname.close()
