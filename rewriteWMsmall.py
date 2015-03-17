@@ -16,7 +16,7 @@ if __name__ == '__main__':
     oldfile = LoadData('runWMsmall.sh')
     modline1 = oldfile[4][:8]
     modline2 = oldfile[-1][:19]
-    newline1 = '{0} {1}_2'.format(modline1,name.replace(' ',''))
+    newline1 = '{0} {1}'.format(modline1,name.replace(' ',''))
     newline2 = '{0} {1}'.format(modline2,ind)
     newfile = oldfile
     newfile[4] = newline1
