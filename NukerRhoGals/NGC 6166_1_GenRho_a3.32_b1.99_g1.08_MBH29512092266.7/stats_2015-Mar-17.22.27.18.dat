@@ -1,0 +1,24 @@
+d2rhodr2,	 i = 1401,	 message = The occurrence of roundoff error is detected, which prevents 
+  the requested tolerance from being achieved.  The error may be 
+  underestimated.
+GALAXY: NGC 6166_1
+Menc:
+Menc,	 i = 0,	 message = The occurrence of roundoff error is detected, which prevents 
+  the requested tolerance from being achieved.  The error may be 
+  underestimated.
+Menc,	 i = 0,	 message = The occurrence of roundoff error is detected, which prevents 
+  the requested tolerance from being achieved.  The error may be 
+  underestimated.
+Failed to evaluate Menc
+psi:
+Failed to evaluate psi
+Jc2:
+Failed to evaluate Jc2
+g:
+Failed to evaluate g
+G:
+Failed to evaluate G
+f:
+Failed to evaluate f
+rate:
+Failed to evaluate dgdlnrp
