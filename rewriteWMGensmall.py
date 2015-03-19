@@ -16,7 +16,7 @@ if __name__ == '__main__':
     oldfile = LoadData('runWMGensmall.sh')
     modline1 = oldfile[4][:8]
     modline2 = oldfile[-1][:22]
-    newline1 = '{0} {1}'.format(modline1,name.replace(' ',''))
+    newline1 = '{0} {1}Gen'.format(modline1,name.replace(' ',''))
     newline2 = '{0} {1}'.format(modline2,ind)
     newfile = oldfile
     newfile[4] = newline1
