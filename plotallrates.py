@@ -44,7 +44,7 @@ if __name__ == '__main__':
 	from rhomodels import NukerModelRho
 	from rhoratefcns import findrho0
 	from construction import pklread,displaycheck,existcheck
-	WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('NGC1600_vartab.dat')
+	WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('NGC3115_vartab.dat')
 	os.chdir('/Users/Natalie/Data/Mar12WM')
 	rho0s = findrho0(rbs,M2Ls,mubs)
 	dcheck = displaycheck()
@@ -66,10 +66,10 @@ if __name__ == '__main__':
 		GENERATE = False
 		model1 = NukerModelRho(name1,alpha,beta,gamma,r0pc,rho0,MBH_Msun1,GENERATE,memo = False)
 		model2 = NukerModelRho(name2,alpha,beta,gamma,r0pc,rho0,MBH_Msun2,GENERATE,memo = False)
-		seton,plotdat = existcheck(model1.directory, dcheck)
+		seton,plotdat = existcheck(model2.directory, dcheck)
 		if seton['dgdlnrp'] == 'OFF':
 			print 'plotting'
-			rate = pklread('{0}/dgdlnrp.pkl'.format(model1.directory))
+			rate = pklread('{0}/dgdlnrp.pkl'.format(model2.directory))
 			plt.loglog(rate[:,0],rate[:,1],color = colors[i])
 			linslope = (log10(rate[:,1][401]) - log10(rate[:,1][301]))/(log10(rate[:,0][401]) - log10(rate[:,0][301]))
 			#ratefn = interp1d(log10(rate[:,0]),log10(rate[:,1]))
@@ -87,7 +87,7 @@ if __name__ == '__main__':
 			#for l in range(len(slopes)-1):
 			#	print (slopes[l+1] - slopes[l])/(log10(rate[:,0][l+1]) - log10(rate[:,0][l]))
 			risefactor = (log10(rate[:,1][mslope]) - log10(rate[:,1][ind]))/(log10(rate[:,0][mslope]) - log10(rate[:,0][ind]))
-			rs.append([name1,alpha,beta,gamma,MBH_Msun1,risefactor])
+			rs.append([name1,alpha,beta,gamma,MBH_Msun2,risefactor])
 
 		#plt.xlim(1e-1,1)
 		#plt.ylim(1e-11,1e-3)
