@@ -11,7 +11,7 @@ i = int(sys.argv[1])
 
 WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('WM04.dat')
 
-GENERATE = True
+GENERATE = False
 
 name = names[i]
 alpha = alphas[i]
@@ -27,7 +27,7 @@ model1.getrho()
 result1 = getrate(model1)
 MBH_Msun = MBH2s[i]
 
-GENERATE = True
+GENERATE = False
 
 model2 = NukerModelGenRho('{0}_2'.format(name),alpha,beta,gamma,rb,rho0,MBH_Msun,GENERATE,memo = False)
 model2.getrho()
