@@ -1,6 +1,8 @@
 from numpy import *
+import matplotlib.pyplot as plt
+import os
 
-def LoadDataTab(fname):
+def load(fname):
     f=open(fname,'r')
     data=[]
     for line in f.readlines():
@@ -8,8 +10,8 @@ def LoadDataTab(fname):
     f.close()
     return data
 
-def getWM():
-	WM = array(LoadDataTab('WM04.dat'))[:,][:-10]
+def getWM(fname):
+	WM = array(load(fname))[:,]
 	names = WM[:,0]
 	dists = array([float(i) for i in WM[:,2]])
 	rbs = 10**array([float(i) for i in WM[:,3]])
@@ -23,16 +25,21 @@ def getWM():
 	return WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s
 
 if __name__ == '__main__':
+	rates = []
 	from rhomodels import NukerModelGenRho
 	from rateget import getrate
 	from rhoratefcns import findrho0
-	WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM()
+	from construction import writedata
+	WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('WM04.dat')
+	os.chdir('/Users/Natalie/Data/Mar16WM')
 	rho0s = findrho0(rbs,M2Ls,mubs)
-	ilist = array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
-       17, 18, 19, 20, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34,
-       35, 36, 37, 38, 39, 40]) #skip 21
+	ilist = arange(0,50)
+	ilist = delete(ilist,21)
+	ilist = delete(ilist,40)
+	ilist = delete(ilist,40)
+	ilist = delete(ilist,44)
 	for i in ilist:
-		print 'Working on ',names[i],' galaxy ',i+1,' of ',len(ilist)
+		print 'Working on ',names[i],' galaxy ',i+1,' of ',len(WM)
 		alpha = alphas[i]
 		beta = betas[i]
 		gamma = gammas[i]
@@ -44,24 +51,14 @@ if __name__ == '__main__':
 		name2 = '{0}_2'.format(names[i])
 		GENERATE = False
 		model1 = NukerModelGenRho(name1,alpha,beta,gamma,r0pc,rho0,MBH_Msun1,GENERATE,memo = False)
-		try:
-			model1.getrho()
-		except IOError:
-			GENERATE = True
-			model1 = NukerModelGenRho(name1,alpha,beta,gamma,r0pc,rho0,MBH_Msun1,GENERATE,memo = False)
-			model1.getrho()
-			GENERATE = False
-			model1 = NukerModelGenRho(name1,alpha,beta,gamma,r0pc,rho0,MBH_Msun1,GENERATE,memo = False)
-			model1.getrho()
+		model1.getrho()
 		result1 = getrate(model1)
+		if result1[-1] != 0:
+			rates.append('{0}\t{1}'.format(name1,log10(result1[-1])))
 		model2 = NukerModelGenRho(name2,alpha,beta,gamma,r0pc,rho0,MBH_Msun2,GENERATE,memo = False)
-		try:
-			model2.getrho()
-		except IOError:
-			GENERATE = True
-			model2 = NukerModelGenRho(name2,alpha,beta,gamma,r0pc,rho0,MBH_Msun2,GENERATE,memo = False)
-			model2.getrho()
-			GENERATE = False
-			model2 = NukerModelGenRho(name2,alpha,beta,gamma,r0pc,rho0,MBH_Msun2,GENERATE,memo = False)
-			model2.getrho()
+		model2.getrho()
 		result2 = getrate(model2)
+		if result2[-1] != 0:
+			rates.append('{0}\t{1}'.format(name2,log10(result2[-1])))
+	writedata(rates,'totalGenrates.dat')
+	os.chdir('/Users/Natalie/Code/galprocess')
