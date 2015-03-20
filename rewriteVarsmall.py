@@ -10,12 +10,12 @@ def LoadData(fname):
     return data
 
 if __name__ == '__main__':
-    WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('WM04.dat')
+    WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('NGC3115_vartab.dat')
     ind = sys.argv[1]
     name = names[int(ind)]
     oldfile = LoadData('runVarsmall.sh')
     modline1 = oldfile[4][:8]
-    modline2 = oldfile[-1][:19]
+    modline2 = oldfile[-1][:20]
     newline1 = '{0} {1}'.format(modline1,name.replace(' ',''))
     newline2 = '{0} {1}'.format(modline2,ind)
     newfile = oldfile

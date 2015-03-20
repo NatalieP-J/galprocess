@@ -1,0 +1,53 @@
+GALAXY: NGC 3115_2
+Menc:
+Mencgood loaded in
+psi:
+psigood loaded in
+Jc2:
+Jc2good loaded in
+g:
+lggood loaded in
+G:
+bGgood loaded in
+f:
+fgood loaded in
+rate:
+rprate,	 i = 10195,	 message = The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+rprate,	 i = 10196,	 message = The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+rprate,	 i = 10197,	 message = The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+rprate,	 i = 10198,	 message = The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+rprate,	 i = 10199,	 message = The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+rprate,	 i = 10200,	 message = The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+
+mesg frac = 0.000588177629644
+dgdlnrpgood ran in 	 3:50:10.590000
