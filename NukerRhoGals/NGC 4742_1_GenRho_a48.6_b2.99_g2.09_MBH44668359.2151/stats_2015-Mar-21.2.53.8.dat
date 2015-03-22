@@ -1,0 +1,23 @@
+GALAXY: NGC 4742_1
+Menc:
+Menc,	 i = 0,	 message = The integral is probably divergent, or slowly convergent.
+Menc,	 i = 0,	 message = The integral is probably divergent, or slowly convergent.
+Menc,	 i = 0,	 message = The integral is probably divergent, or slowly convergent.
+Menc,	 i = 0,	 message = The integral is probably divergent, or slowly convergent.
+Menc,	 i = 0,	 message = The integral is probably divergent, or slowly convergent.
+Menc,	 i = 0,	 message = The integral is probably divergent, or slowly convergent.
+Menc,	 i = 0,	 message = The integral is probably divergent, or slowly convergent.
+Menc,	 i = 0,	 message = The integral is probably divergent, or slowly convergent.
+Mencgood loaded in
+psi:
+Failed to evaluate psi
+Jc2:
+Failed to evaluate Jc2
+g:
+Failed to evaluate g
+G:
+Failed to evaluate G
+f:
+Failed to evaluate f
+rate:
+Failed to evaluate dgdlnrp

@@ -53,16 +53,16 @@ if __name__ == '__main__':
 	from rhoratefcns import findrho0
 	from construction import pklread,displaycheck,existcheck
 	WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('WM04.dat')
-	#os.chdir('/Users/Natalie/Data/Mar12WM')
+	#os.chdir('/Users/Natalie/Data/Mar16WM')
 	rho0s = findrho0(rbs,M2Ls,mubs)
 	dcheck = displaycheck()
 	ilist = arange(0,50)
 	colors = plt.get_cmap('spectral')(linspace(0, 1.0, len(ilist)))
 	#ilist = delete(ilist,11)
-	ilist = delete(ilist,5)
-	ilist = delete(ilist,5)
-	ilist = delete(ilist,26)
-	ilist = delete(ilist,46)
+	#ilist = delete(ilist,5)
+	#ilist = delete(ilist,5)
+	#ilist = delete(ilist,26)
+	#ilist = delete(ilist,46)
 	plt.figure()
 	rs = []
 	for i in ilist:
