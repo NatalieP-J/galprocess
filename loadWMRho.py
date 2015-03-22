@@ -31,7 +31,7 @@ if __name__ == '__main__':
 	from rhoratefcns import findrho0
 	from construction import writedata
 	WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('WM04.dat')
-	os.chdir('/Users/Natalie/Data/Mar16WM')
+	#os.chdir('/Users/Natalie/Data/Mar16WM')
 	rho0s = findrho0(rbs,M2Ls,mubs)
 	ilist = arange(0,50)
 	ilist = delete(ilist,21)
@@ -59,4 +59,4 @@ if __name__ == '__main__':
 		if result2[-1] != 0:
 			rates.append('{0}\t{1}'.format(name2,log10(result2[-1])))
 	writedata(rates,'totalrates.dat')
-	os.chdir('/Users/Natalie/Code/galprocess')
+	#os.chdir('/Users/Natalie/Code/galprocess')

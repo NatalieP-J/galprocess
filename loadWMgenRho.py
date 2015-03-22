@@ -31,13 +31,21 @@ if __name__ == '__main__':
 	from rhoratefcns import findrho0
 	from construction import writedata
 	WM,names,dists,rbs,mubs,alphas,betas,gammas,M2Ls,MBH1s,MBH2s = getWM('WM04.dat')
-	os.chdir('/Users/Natalie/Data/Mar16WM')
+	#os.chdir('/Users/Natalie/Data/Mar16WM')
 	rho0s = findrho0(rbs,M2Ls,mubs)
 	ilist = arange(0,50)
+	ilist = delete(ilist,3)
+	ilist = delete(ilist,7)
+	ilist = delete(ilist,11)
+	ilist = delete(ilist,14)
+	ilist = delete(ilist,20)
 	ilist = delete(ilist,21)
-	ilist = delete(ilist,40)
-	ilist = delete(ilist,40)
-	ilist = delete(ilist,44)
+	ilist = delete(ilist,21)
+	ilist = arange(48,50)
+	#ilist = delete(ilist,21)
+	#ilist = delete(ilist,40)
+	#ilist = delete(ilist,40)
+	#ilist = delete(ilist,44)
 	for i in ilist:
 		print 'Working on ',names[i],' galaxy ',i+1,' of ',len(WM)
 		alpha = alphas[i]
@@ -55,10 +63,10 @@ if __name__ == '__main__':
 		result1 = getrate(model1)
 		if result1[-1] != 0:
 			rates.append('{0}\t{1}'.format(name1,log10(result1[-1])))
-		model2 = NukerModelGenRho(name2,alpha,beta,gamma,r0pc,rho0,MBH_Msun2,GENERATE,memo = False)
-		model2.getrho()
-		result2 = getrate(model2)
-		if result2[-1] != 0:
-			rates.append('{0}\t{1}'.format(name2,log10(result2[-1])))
+		#model2 = NukerModelGenRho(name2,alpha,beta,gamma,r0pc,rho0,MBH_Msun2,GENERATE,memo = False)
+		#model2.getrho()
+		#result2 = getrate(model2)
+		#if result2[-1] != 0:
+		#	rates.append('{0}\t{1}'.format(name2,log10(result2[-1])))
 	writedata(rates,'totalGenrates.dat')
-	os.chdir('/Users/Natalie/Code/galprocess')
+	#os.chdir('/Users/Natalie/Code/galprocess')

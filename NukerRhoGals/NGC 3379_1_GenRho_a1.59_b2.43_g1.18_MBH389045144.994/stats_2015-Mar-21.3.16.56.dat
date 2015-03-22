@@ -1,0 +1,27 @@
+GALAXY: NGC 3379_1
+Menc:
+Menc,	 i = 0,	 message = The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+Menc,	 i = 0,	 message = The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+Mencgood loaded in
+psi:
+psigood loaded in
+Jc2:
+Jc2good loaded in
+g:
+lggood loaded in
+G:
+bGgood loaded in
+f:
+fgood loaded in
+rate:
+dgdlnrpgood loaded in
