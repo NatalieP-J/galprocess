@@ -41,7 +41,7 @@ def newtab(nplist,chinds,origrow):
 if __name__ == '__main__':       
     WM = array(load('WM04.dat'))[:,]
     names = WM[:,0]
-    name = 'NGC 3115'
+    name = 'NGC 1600'
     rowind = name2row(name,names)
     alpha = (array([float(i) for i in WM[:,5]]))[rowind]
     beta = (array([float(i) for i in WM[:,6]]))[rowind]
